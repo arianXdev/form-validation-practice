@@ -1,17 +1,31 @@
 import { useState } from "react";
+
+import { useFormik } from "formik";
+
 import { mainFormSchema } from "./validations/mainValidation";
 
 import "./App.css";
 
 const App = () => {
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
+	const [person, setPerson] = useState({});
 
-	const handleSubmitForm = (event) => {
-		event.preventDefault();
-
-		console.log(`${firstName} ${lastName}`);
-	};
+	const formik = useFormik({
+		initialValues: {
+			firstName: "",
+			lastName: "",
+			email: "",
+			country: "",
+			address: "",
+			city: "",
+			state: "",
+			zipCode: "",
+		},
+		validationSchema: mainFormSchema,
+		onSubmit: (values) => {
+			setPerson(values);
+			console.log(person);
+		},
+	});
 
 	return (
 		<main className="App">
@@ -21,64 +35,67 @@ const App = () => {
 
 					<br />
 
-					<form onSubmit={handleSubmitForm}>
+					<form onSubmit={formik.handleSubmit}>
 						<div className="overflow-hidden drop-shadow-2xl rounded-3xl">
 							<div className="bg-white px-4 py-5 sm:p-6">
 								<div className="grid grid-cols-6 gap-6">
 									<div className="col-span-6 sm:col-span-3">
-										<label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+										<label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
 											First name
 										</label>
 										<input
 											type="text"
-											name="first-name"
-											id="first-name"
+											name="firstName"
 											autoComplete="given-name"
-											value={firstName}
-											onChange={(e) => setFirstName(e.target.value)}
+											{...formik.getFieldProps("firstName")}
 											className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 										/>
+										{formik.touched.firstName && formik.errors.firstName ? <span className="input-error">{formik.errors.firstName}</span> : null}
 									</div>
 
 									<div className="col-span-6 sm:col-span-3">
-										<label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+										<label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
 											Last name
 										</label>
 										<input
 											type="text"
-											name="last-name"
-											id="last-name"
-											value={lastName}
-											onChange={(e) => setLastName(e.target.value)}
+											name="lastName"
+											{...formik.getFieldProps("lastName")}
 											autoComplete="family-name"
 											className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 										/>
+										{formik.touched.lastName && formik.errors.lastName ? <span className="input-error">{formik.errors.lastName}</span> : null}
 									</div>
 
 									<div className="col-span-6 sm:col-span-3">
 										<input
 											type="text"
-											name="full-name"
-											id="full-name"
+											name="fullName"
+											id="fullName"
 											autoComplete="family-name"
 											disabled
 											placeholder="Full Name"
-											value={firstName === "" && lastName === "" ? "Full Name" : `${firstName} ${lastName}`}
+											value={
+												formik.values.firstName === "" && formik.values.lastName === ""
+													? "Full Name"
+													: `${formik.values.firstName} ${formik.values.lastName}`
+											}
 											className="mt-1 block w-full rounded-md border-gray-200 text-stone-800 shadow-sm sm:text-sm disabled:opacity-75"
 										/>
 									</div>
 
 									<div className="col-span-6 sm:col-span-4">
-										<label htmlFor="email-address" className="block text-sm font-medium text-gray-700">
+										<label htmlFor="email" className="block text-sm font-medium text-gray-700">
 											Email address
 										</label>
 										<input
 											type="text"
-											name="email-address"
-											id="email-address"
+											name="email"
+											{...formik.getFieldProps("email")}
 											autoComplete="email"
 											className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 										/>
+										{formik.touched.email && formik.errors.email ? <span className="input-error">{formik.errors.email}</span> : null}
 									</div>
 
 									<div className="col-span-6 sm:col-span-3">
@@ -86,31 +103,34 @@ const App = () => {
 											Country
 										</label>
 										<select
-											id="country"
 											name="country"
 											autoComplete="country-name"
+											{...formik.getFieldProps("country")}
 											className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-teal-400 focus:outline-none focus:ring-teal-400 sm:text-sm"
 										>
-											<option>United States</option>
-											<option>Canada</option>
-											<option>Persia</option>
-											<option>England</option>
-											<option>Germany</option>
-											<option>France</option>
+											<option value="">Select a country</option>
+											<option value="0">United States</option>
+											<option value="1">Canada</option>
+											<option value="2">Persia</option>
+											<option value="3">England</option>
+											<option value="4">Germany</option>
+											<option value="5">France</option>
 										</select>
+										{formik.touched.country && formik.errors.country ? <span className="input-error">{formik.errors.country}</span> : null}
 									</div>
 
 									<div className="col-span-6">
-										<label htmlFor="street-address" className="block text-sm font-medium text-gray-700">
+										<label htmlFor="address" className="block text-sm font-medium text-gray-700">
 											Street address
 										</label>
 										<input
 											type="text"
-											name="street-address"
-											id="street-address"
+											name="address"
+											{...formik.getFieldProps("address")}
 											autoComplete="street-address"
 											className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 										/>
+										{formik.touched.address && formik.errors.address ? <span className="input-error">{formik.errors.address}</span> : null}
 									</div>
 
 									<div className="col-span-6 sm:col-span-6 lg:col-span-2">
@@ -120,36 +140,39 @@ const App = () => {
 										<input
 											type="text"
 											name="city"
-											id="city"
+											{...formik.getFieldProps("city")}
 											autoComplete="address-level2"
 											className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 										/>
+										{formik.touched.city && formik.errors.city ? <span className="input-error">{formik.errors.city}</span> : null}
 									</div>
 
 									<div className="col-span-6 sm:col-span-3 lg:col-span-2">
-										<label htmlFor="region" className="block text-sm font-medium text-gray-700">
+										<label htmlFor="state" className="block text-sm font-medium text-gray-700">
 											State / Province
 										</label>
 										<input
 											type="text"
-											name="region"
-											id="region"
+											name="state"
+											{...formik.getFieldProps("state")}
 											autoComplete="address-level1"
 											className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 										/>
+										{formik.touched.state && formik.errors.state ? <span className="input-error">{formik.errors.state}</span> : null}
 									</div>
 
 									<div className="col-span-6 sm:col-span-3 lg:col-span-2">
-										<label htmlFor="postal-code" className="block text-sm font-medium text-gray-700">
+										<label htmlFor="zipCode" className="block text-sm font-medium text-gray-700">
 											ZIP / Postal code
 										</label>
 										<input
 											type="text"
-											name="postal-code"
-											id="postal-code"
+											name="zipCode"
+											{...formik.getFieldProps("zipCode")}
 											autoComplete="postal-code"
 											className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 										/>
+										{formik.touched.zipCode && formik.errors.zipCode ? <span className="input-error">{formik.errors.zipCode}</span> : null}
 									</div>
 								</div>
 							</div>

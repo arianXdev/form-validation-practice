@@ -1,0 +1,9 @@
+.input-error {
+	font-size: 0.82em;
+	padding-left: 20px;
+	color: var(--red-color);
+}
+
+.input-error::before {
+	content: " * ";
+}
