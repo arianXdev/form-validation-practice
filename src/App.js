@@ -1,3 +1,5 @@
+import { mainFormSchema } from "./validations/mainValidation";
+
 import "./App.css";
 
 const App = () => {
