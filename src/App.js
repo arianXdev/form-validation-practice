@@ -58,7 +58,7 @@ const App = () => {
 													autoComplete="given-name"
 													className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 												/>
-												<ErrorMessage name="firstName" render={(msg) => <span className="input-error">{msg}</span>} />
+												<ErrorMessage name="firstName" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 
 											<div className="col-span-6 sm:col-span-3">
@@ -71,8 +71,8 @@ const App = () => {
 													autoComplete="family-name"
 													className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 												/>
-												{/* {formik.touched.lastName && formik.errors.lastName ? <span className="input-error">{formik.errors.lastName}</span> : null} */}
-												<ErrorMessage name="lastName" render={(msg) => <span className="input-error">{msg}</span>} />
+												{/* {formik.touched.lastName && formik.errors.lastName ? <span className="input-error animate__animated animate__fadeInDown">{formik.errors.lastName}</span> : null} */}
+												<ErrorMessage name="lastName" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 
 											<div className="col-span-6 sm:col-span-3">
@@ -102,8 +102,8 @@ const App = () => {
 													autoComplete="email"
 													className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 												/>
-												{/* {formik.touched.email && formik.errors.email ? <span className="input-error">{formik.errors.email}</span> : null} */}
-												<ErrorMessage name="email" render={(msg) => <span className="input-error">{msg}</span>} />
+												{/* {formik.touched.email && formik.errors.email ? <span className="input-error animate__animated animate__fadeInDown">{formik.errors.email}</span> : null} */}
+												<ErrorMessage name="email" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 
 											<div className="col-span-6 sm:col-span-3">
@@ -124,8 +124,8 @@ const App = () => {
 													<option value="4">Germany</option>
 													<option value="5">France</option>
 												</Field>
-												{/* {formik.touched.country && formik.errors.country ? <span className="input-error">{formik.errors.country}</span> : null} */}
-												<ErrorMessage name="country" render={(msg) => <span className="input-error">{msg}</span>} />
+												{/* {formik.touched.country && formik.errors.country ? <span className="input-error animate__animated animate__fadeInDown">{formik.errors.country}</span> : null} */}
+												<ErrorMessage name="country" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 
 											<div className="col-span-6">
@@ -138,8 +138,8 @@ const App = () => {
 													autoComplete="street-address"
 													className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 												/>
-												{/* {formik.touched.address && formik.errors.address ? <span className="input-error">{formik.errors.address}</span> : null} */}
-												<ErrorMessage name="address" render={(msg) => <span className="input-error">{msg}</span>} />
+												{/* {formik.touched.address && formik.errors.address ? <span className="input-error animate__animated animate__fadeInDown">{formik.errors.address}</span> : null} */}
+												<ErrorMessage name="address" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 
 											<div className="col-span-6 sm:col-span-6 lg:col-span-2">
@@ -152,8 +152,8 @@ const App = () => {
 													autoComplete="address-level2"
 													className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 												/>
-												{/* {formik.touched.city && formik.errors.city ? <span className="input-error">{formik.errors.city}</span> : null} */}
-												<ErrorMessage name="city" render={(msg) => <span className="input-error">{msg}</span>} />
+												{/* {formik.touched.city && formik.errors.city ? <span className="input-error animate__animated animate__fadeInDown">{formik.errors.city}</span> : null} */}
+												<ErrorMessage name="city" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 
 											<div className="col-span-6 sm:col-span-3 lg:col-span-2">
@@ -166,8 +166,8 @@ const App = () => {
 													autoComplete="address-level1"
 													className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 												/>
-												{/* {formik.touched.state && formik.errors.state ? <span className="input-error">{formik.errors.state}</span> : null} */}
-												<ErrorMessage name="state" render={(msg) => <span className="input-error">{msg}</span>} />
+												{/* {formik.touched.state && formik.errors.state ? <span className="input-error animate__animated animate__fadeInDown">{formik.errors.state}</span> : null} */}
+												<ErrorMessage name="state" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 
 											<div className="col-span-6 sm:col-span-3 lg:col-span-2">
@@ -180,8 +180,8 @@ const App = () => {
 													autoComplete="postal-code"
 													className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-teal-400 focus:ring-teal-400 sm:text-sm"
 												/>
-												{/* {formik.touched.zipCode && formik.errors.zipCode ? <span className="input-error">{formik.errors.zipCode}</span> : null} */}
-												<ErrorMessage name="zipCode" render={(msg) => <span className="input-error">{msg}</span>} />
+												{/* {formik.touched.zipCode && formik.errors.zipCode ? <span className="input-error animate__animated animate__fadeInDown">{formik.errors.zipCode}</span> : null} */}
+												<ErrorMessage name="zipCode" render={(msg) => <span className="input-error animate__animated animate__fadeInDown">{msg}</span>} />
 											</div>
 										</div>
 									</div>
